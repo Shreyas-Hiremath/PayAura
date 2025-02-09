@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayAura - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">PayAura</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="signup-form">
+        <div class="container">
+            <h2>Create an Account</h2>
+            <form action="submit-signup.php" method="post" id="signupForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentMethod">Payment Method</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="creditCard">Credit Card</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="topUpAmountSection">
+                    <label for="topUpAmount">Top-up Amount</label>
+                    <select id="topUpAmount" name="topUpAmount" required>
+                        <option value="0">Select Amount</option>
+                        <option value="1000">1000 Points</option>
+                        <option value="2000">2000 Points</option>
+                        <option value="5000">5000 Points</option>
+                        <option value="10000">10000 Points</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" name="cardNumber" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="expiryDate">Expiry Date</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="billingAddress">Billing Address</label>
+                    <input type="text" id="billingAddress" name="billingAddress" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="securityQuestion">Security Question</label>
+                    <select id="securityQuestion" name="securityQuestion" required>
+                        <option value="motherMaidenName">Mother's Maiden Name</option>
+                        <option value="firstPet">First Pet's Name</option>
+                        <option value="favoriteBook">Favorite Book</option>
+                    </select>
+                    <input type="text" id="securityAnswer" name="securityAnswer" placeholder="Answer" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the <a href="#">terms and conditions</a></label>
+                </div>
+
+                <button type="submit" class="signup-button">Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PayAura. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('paymentMethod').addEventListener('change', function() {
+            const paymentMethod = this.value;
+            const cardNumberLabel = document.getElementById('cardNumber');
+            const expiryDateLabel = document.getElementById('expiryDate');
+            const cvvLabel = document.getElementById('cvv');
+
+            if (paymentMethod === 'creditCard') {
+                cardNumberLabel.style.display = 'block';
+                expiryDateLabel.style.display = 'block';
+                cvvLabel.style.display = 'block';
+            } else {
+                cardNumberLabel.style.display = 'none';
+                expiryDateLabel.style.display = 'none';
+                cvvLabel.style.display = 'none';
+            }
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            // Check if passwords match
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                event.preventDefault(); // Prevent form submission
+            } else {
+                // Optionally handle additional form validations
+            }
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #000000; /* Black text color */
+            background-color: #ffffff; /* White background */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the footer stays at the bottom */
+        }
+
+        header {
+            background: #000000; /* Black header */
+            color: #ffffff; /* White text */
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff; /* White logo text */
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 1rem;
+        }
+
+        header nav ul li a {
+            color: #ffffff; /* White nav links */
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .signup-form {
+            padding: 2rem 1rem;
+            background: url('loginback.jpg') no-repeat center/cover; /* Background image */ 
+        }
+
+        .signup-form .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-form h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #000000; /* Black heading */
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"],
+        .form-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+
+        .signup-button {
+            width: 100%;
+            padding: 0.5rem 0;
+            background: #000000; /* Black button background */
+            color: #ffffff; /* White button text */
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .signup-button:hover {
+            background: #333333; /* Darker shade on hover */
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 1rem 0;
+            text-align: center;
+            background: #000000; /* Black footer */
+            color: #ffffff; /* White text */
+        }
+    </style>
+</body>
+</html>

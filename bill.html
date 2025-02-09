@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Bills - PayAura</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">PayAura</div>
+            <nav>
+                <ul>
+                    <li><button onclick="location.href='index.html'">Home</button></li>
+                    <li><button onclick="location.href='#features'">Features</button></li>
+                    <li><button onclick="location.href='#pricing'">Pricing</button></li>
+                    <li><button onclick="location.href='#contact'">Contact</button></li>
+                    <li><button onclick="location.href='login.html'">Logout</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="paybills-section">
+        <div class="container">
+            <h2>Pay Bills</h2>
+            <p>Enter your details and select a bill to pay:</p>
+            <form id="paybills-form" action="bill.php" method="POST">
+                <div class="form-box">
+                    <input type="text" name="account-number" placeholder="Enter account number" required>
+                    <select name="bill-type" required>
+                        <option value="">Select bill type</option>
+                        <option value="electricity">Electricity</option>
+                        <option value="water">Water</option>
+                        <option value="gas">Gas</option>
+                    </select>
+                    <input type="number" name="amount" placeholder="Enter amount" required>
+                    <button type="submit">Pay Now</button>
+                </div>
+                <p id="message"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PayAura. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('paybills-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var accountNumber = document.querySelector('input[name="account-number"]').value;
+    var billType = document.querySelector('select[name="bill-type"]').value;
+    var amount = document.querySelector('input[name="amount"]').value;
+
+    if (accountNumber && billType && amount) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "bill.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    try {
+                        var response = JSON.parse(xhr.responseText);
+                        document.getElementById('message').textContent = response.message;
+                    } catch (e) {
+                        console.error("Invalid JSON response:", xhr.responseText);
+                        document.getElementById('message').textContent = 'Server error, please try again later.';
+                    }
+                } else {
+                    console.error('Request failed with status ' + xhr.status);
+                    document.getElementById('message').textContent = 'Server error, please try again later.';
+                }
+            }
+        };
+
+        var data = "username=<?php echo $_SESSION['username']; ?>&billType=" + encodeURIComponent(billType) + "&amount=" + encodeURIComponent(amount);
+        xhr.send(data);
+    } else {
+        document.getElementById('message').textContent = 'Please fill out all fields correctly.';
+    }
+});
+
+    </script>
+    
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: url('loginback.jpg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #000;
+            color: #FFF;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 1rem;
+        }
+
+        header nav ul li button {
+            color: #FFF;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .paybills-section {
+            padding: 6rem 6rem;
+            background-color: #FFF;
+            margin: auto;
+        }
+
+        .paybills-section .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 600px;
+        }
+
+        .paybills-section h2 {
+            font-size: 2rem;
+            color: #000;
+        }
+
+        .paybills-section p {
+            color: #000;
+        }
+
+        .paybills-section form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .paybills-section .form-box {
+            padding: 2rem;
+            border: 1px solid #000;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .paybills-section input, .paybills-section select, .paybills-section button {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+
+        .paybills-section button {
+            background: #000;
+            color: #FFF;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .paybills-section button:hover {
+            background: #FFF;
+            color: #000;
+            border: 1px solid #000;
+        }
+
+        #message {
+            margin-top: 20px;
+            color: rgb(0, 0, 0);
+        }
+
+        footer {
+            background: #000;
+            color: #FFF;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 60px; /* Ensures footer maintains a consistent height */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</body>
+</html>

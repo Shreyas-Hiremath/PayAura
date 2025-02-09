@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayAura - Seamless Online Payments</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">PayAura</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="login-button" onclick="navigateToLogin()">Login</button>
+                <button class="signup-button" onclick="navigateToSignup()">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="experience-box">
+            <h1>Experience Seamless Online Payments with PayAura</h1>
+            <p>Your gateway to secure, fast, and reliable transactions worldwide.</p>
+            <button onclick="navigateToSignup()">Get Started</button>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="feature">
+                <h3>Global Transactions</h3>
+                <p>Send and receive payments from anywhere in the world.</p>
+            </div>
+            <div class="feature">
+                <h3>Secure Payments</h3>
+                <p>Our top-notch security ensures your money is safe at all times.</p>
+            </div>
+            <div class="feature">
+                <h3>Low Fees</h3>
+                <p>Enjoy the best rates and minimal fees for your transactions.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PayAura. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function navigateToLogin() {
+            window.location.href = 'login.html';
+        }
+
+        function navigateToSignup() {
+            window.location.href = 'signup.html'; // Change this to the actual signup page URL
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #000000; /* Black text color */
+            background: url('loginback.jpg') no-repeat center/cover; /* Background image */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the footer stays at the bottom */
+        }
+
+        header {
+            background: #000000; /* Black header */
+            color: #ffffff; /* White text */
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff; /* White logo text */
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 1rem;
+        }
+
+        header nav ul li a {
+            color: #ffffff; /* White nav links */
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .auth-buttons {
+            display: flex;
+        }
+
+        .login-button, .signup-button {
+            background: #000000; /* Black button */
+            color: #ffffff; /* White text */
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            margin-left: 1rem; /* Space between buttons */
+        }
+
+        .login-button:hover, .signup-button:hover {
+            background: #ffffff; /* White hover state */
+            color: #000000;
+            border: 1px solid #000000; /* Black border */
+        }
+
+        .hero {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .hero .experience-box {
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent black background */
+            color: #ffffff; /* White text */
+            padding: 4rem;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #000000; /* Black heading */
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #000000; /* Black text */
+        }
+
+        .hero button {
+            background: #000000; /* Black button */
+            color: #ffffff; /* White text */
+            padding: 0.7rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hero button:hover {
+            background: #ffffff; /* White hover state */
+            color: #000000;
+            border: 1px solid #000000; /* Black border */
+        }
+
+        .features {
+            padding: 2rem 1rem;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .features .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .features .feature {
+            background: #ffffff; /* White background for features */
+            padding: 2rem;
+            border: 1px solid #000000; /* Black border */
+            border-radius: 10px; /* Rounded corners */
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            flex: 1 1 250px; /* Responsive layout */
+            margin: 1rem;
+        }
+
+        .features h3 {
+            font-size: 1.5rem;
+            color: #000000; /* Black heading */
+        }
+
+        .features p {
+            color: #000000; /* Black text */
+        }
+
+        .login-button {
+            background: #000000; /* Black button */
+            color: #ffffff; /* White text */
+            padding: 0.5rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .login-button:hover {
+            background: #ffffff; /* White hover state */
+            color: #000000;
+            border: 1px solid #000000; /* Black border */
+        }
+
+        footer {
+            background: #000000; /* Black footer */
+            color: #ffffff; /* White text */
+            text-align: center;
+            padding: 1rem;
+            position: fixed; /* Fix footer at the bottom */
+            left: 0;
+            bottom: 0;
+            width: 100%; /* Full width */
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,185 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #000000; /* Default text color set to black */
+    background-color: #FFFFFF; /* White background for the body */
+}
+
+header {
+    background: #000000; /* Black header */
+    color: #FFFFFF; /* White text */
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFFFFF; /* White logo text */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #FFFFFF; /* White nav links */
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.hero {
+    padding: 4rem 1rem;
+    text-align: center;
+    color: #FFFFFF; /* White text to contrast the image */
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Subtle text shadow for readability */
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
+}
+
+.hero button {
+    padding: 0.75rem 2rem;
+    background: #000000; /* Black button */
+    color: #FFFFFF; /* White text */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background: #FFFFFF; /* White hover state */
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.features {
+    padding: 4rem 1rem;
+    background: #000000; /* Light gray for subtle contrast */
+    color: #F7F7F7; /* Black text */
+}
+
+.features .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.feature h3 {
+    margin-bottom: 1rem;
+    color: #F7F7F7; /* Black headings */
+}
+
+.pricing {
+    background: #000000; /* White background for pricing */
+    padding: 4rem 1rem;
+    text-align: center;
+    color: #000000; /* Black text */
+}
+
+.pricing h2 {
+    margin-bottom: 1rem;
+    color: #FFFFFF; /* Black heading */
+}
+
+.pricing .plans {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.plan {
+    background: #F7F7F7; /* Light gray cards */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 300px;
+    border: 1px solid #000000; /* Black border */
+}
+
+.plan h3 {
+    margin-bottom: 1rem;
+    color: #000000; /* Black headings */
+}
+
+.plan button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #000000; /* Black buttons */
+    color: #FFFFFF; /* White button text */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.plan button:hover {
+    background: #FFFFFF; /* White hover state */
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+footer {
+    background: #000000; /* Black footer */
+    color: #FFFFFF; /* White text */
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Login Button Styles */
+.login-button {
+    background-color: #FFFFFF; /* White background */
+    color: #000000; /* Black text */
+    border: 2px solid #000000; /* Black border */
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-left: 1rem;
+}
+
+.login-button:hover {
+    background-color: #000000; /* Black hover state */
+    color: #FFFFFF; /* White text */
+    border-color: #000000; /* Black border for consistency */
+}
